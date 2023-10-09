@@ -1,0 +1,22 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+
+  .messagesContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
+    height: 400px;
+
+    .messages {
+      height: 100%;
+      margin: 0;
+      font-size: 150%;
+      padding: 10px 20px 10px 20px;
+    }
+  }
+
+  .messagesInput {
+    font-size: 150%;
+  }
+}

@@ -1,0 +1,16 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .userName {
+    text-align: center;
+    font-size: 200%;
+    letter-spacing: 3px;
+  }
+
+  .title {
+    font-size: 200%;
+  }
+}

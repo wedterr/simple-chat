@@ -1,0 +1,29 @@
+<div class="chatContainer" *ngIf="isLoggedIn; else login">
+  <div
+    class="messagesContainer"
+    infinite-scroll
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolledUp)="onUp($event)"
+    [fromRoot]="true"
+    [infiniteScrollContainer]="'.messagesContainer'"
+  >
+    <div class="messages" *ngFor="let i of msgs$ | async">
+      <span [style]="stringToHslColor(i.userName)">{{ i.userName }}</span>: {{ i.text }}
+    </div>
+  </div>
+  <input class="messagesInput"
+    [(ngModel)]="msgText"
+    (keyup.enter)="onEnter()"
+    type="text"
+    name="chat"
+  />
+  <button class="title" (click)="leaveChat()">
+    Leave Chat as {{ userName }}
+  </button>
+</div>
+<ng-template #login>
+  <div class="chatContainer">
+    <button class="title" (click)="leaveChat()">Please Login</button>
+  </div>
+</ng-template>
